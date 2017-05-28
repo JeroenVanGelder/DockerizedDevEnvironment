@@ -1,0 +1,6 @@
+artifactory/data/
+artifactory/etc/
+artifactory/logs/
+jenkins/jenkins_home/
+sonarqube/sonar_home
+sonarqube/sonarqube_home

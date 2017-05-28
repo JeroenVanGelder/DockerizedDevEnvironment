@@ -1,0 +1,27 @@
+version: '2'
+services:
+  jenkins:
+    build: jenkins/.
+    ports:
+     - "8080:8080"
+     - "50000:50000"
+    volumes: 
+     - "/home/jeroenvangelder/workspace/advanced-programming/incentro/jenkins/jenkins_home:/var/jenkins_home"
+    image: "incentro/jenkins:0.2"
+
+  sonarqube:
+    image: sonarqube:6.3.1
+    ports: 
+     - "9000:9000"
+     - "9092:9092"
+    volumes:
+     - "/home/jeroenvangelder/workspace/advanced-programming/incentro/sonarqube/sonar_home/data:/opt/sonarqube/data"
+
+  artifactory:
+    image: "docker.bintray.io/jfrog/artifactory-oss:4.16.0"
+    ports:
+     - "8081:8081"
+    volumes:
+     - "/home/jeroenvangelder/workspace/advanced-programming/incentro/artifactory/data:/var/opt/jfrog/artifactory/data"
+     - "/home/jeroenvangelder/workspace/advanced-programming/incentro/artifactory/logs:/var/opt/jfrog/artifactory/logs"
+     - "/home/jeroenvangelder/workspace/advanced-programming/incentro/artifactory/etc:/var/opt/jfrog/artifactory/etc"
