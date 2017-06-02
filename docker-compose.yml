@@ -7,8 +7,10 @@ services:
      - "50000:50000"
     volumes: 
      - "/home/jeroenvangelder/workspace/advanced-programming/incentro/jenkins/jenkins_home:/var/jenkins_home"
-    image: "incentro/jenkins:0.2"
-
+    image: "incentro/jenkins:0.3"
+    links:
+     - sonarqube
+     - artifactory
   sonarqube:
     image: sonarqube:6.3.1
     ports: 
